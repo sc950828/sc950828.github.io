@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>width:auto 和 width:100% 的区别？</title>
+    <style>
+      .fu {
+        width: 500px;
+        height: 100px;
+        padding: 50px;
+        background-color: indianred;
+        border: 10px solid green;
+      }
+
+      .zi {
+        width: 100%;
+        height: 50%;
+        padding: 20px;
+        background-color: grey;
+      }
+
+      .fu1 {
+        width: 500px;
+        height: 100px;
+        padding: 50px;
+        background-color: indianred;
+        border: 10px solid green;
+      }
+
+      .zi1 {
+        width: auto;
+        height: 50%;
+        padding: 20px;
+        background-color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>
+      width:100% 会使元素 content box 的宽度等于父元素的 content box
+      的宽度。如果元素有内外边距或者边框则会超出父元素。
+    </h3>
+    <div class="fu">
+      <div class="zi"></div>
+    </div>
+
+    <h3>
+      width:auto 会使元素 border box 的宽度等于父元素的 content box
+      的宽度。不管有没有边距或边框始终包含在父元素内。
+    </h3>
+    <div class="fu1">
+      <div class="zi1"></div>
+    </div>
+  </body>
+</html>

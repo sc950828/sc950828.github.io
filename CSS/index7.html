@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>绝对定位元素与非绝对定位元素的百分比计算的区别</title>
+    <style>
+      .fu {
+        width: 500px;
+        height: 100px;
+        padding: 50px;
+        background-color: indianred;
+        border: 10px solid green;
+      }
+
+      .zi {
+        width: 50%;
+        height: 50%;
+        /* padding: 20px; */
+        background-color: grey;
+      }
+
+      .fu1 {
+        width: 500px;
+        height: 100px;
+        padding: 50px;
+        background-color: goldenrod;
+        position: relative;
+        border: 10px solid green;
+      }
+
+      .zi1 {
+        width: 50%;
+        height: 50%;
+        /* padding: 20px; */
+        background-color: darkorchid;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>
+      非绝对定位元素的content box宽高百分比则是相对于父元素的 content box
+      来计算的。
+    </h3>
+    <div class="fu">
+      <div class="zi"></div>
+    </div>
+
+    <h3>
+      绝对定位元素的content box宽高百分比是相对于临近的 position 不为 static
+      的祖先元素的 padding box 来计算的。
+    </h3>
+    <div class="fu1">
+      <div class="zi1"></div>
+    </div>
+  </body>
+</html>

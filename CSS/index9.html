@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>浮动</title>
+    <style>
+      .div1 {
+        border: 1px solid forestgreen;
+      }
+      .span1 {
+        float: right;
+      }
+      .span2 {
+        float: left;
+      }
+      .span6 {
+        float: left;
+      }
+      .span7 {
+        float: left;
+      }
+      .span9 {
+        float: left;
+      }
+
+      .span-img {
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>浮动后元素都是inline-block元素</h3>
+    <h3>
+      直到遇到另一个浮动元素或者遇到它外边缘的包含框或者块级元素才不会向上浮动
+    </h3>
+    <div class="div1">
+      <span class="span1">你好</span>
+      <span>苏纯1</span>
+      <span>苏纯2</span>
+
+      <div>苏纯3</div>
+      <span class="span2">你好2</span>
+      <span>randy</span>
+      <span>苏纯4</span>
+      <span>苏纯5</span>
+
+      <div>苏纯6</div>
+      <span class="span3">你好3</span>
+      <span class="span4">你好4</span>
+      <span class="span5">你好5</span>
+      <span class="span6">你好6</span>
+
+      <div>苏纯7</div>
+      <span class="span7">你好7</span>
+      <span class="span8">你好8</span>
+      <div class="span9">你好9</div>
+    </div>
+
+    <h3>图文并排</h3>
+    <div>
+      <img
+        class="span-img"
+        src="../images/js.jpg"
+        width="200px"
+        height="100px"
+        alt=""
+      />
+      <span
+        >浮动后元素都是inline-block元素
+        直到遇到另一个浮动元素或者遇到它外边缘的包含框或者块级元素才不会向上浮动.浮动后元素都是inline-block元素
+        直到遇到另一个浮动元素或者遇到它外边缘的包含框或者块级元素才不会向上浮动.浮动后元素都是inline-block元素
+        直到遇到另一个浮动元素或者遇到它外边缘的包含框或者块级元素才不会向上浮动.</span
+      >
+    </div>
+  </body>
+</html>
