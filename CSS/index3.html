@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>纯 css 实现点击变背景色</title>
+    <style>
+      .div1 {
+        width: 200px;
+        height: 200px;
+        background-color: cornflowerblue;
+      }
+      .div1:active {
+        background-color: cyan;
+      }
+
+      .div2 {
+        width: 200px;
+        height: 200px;
+        background-color: greenyellow;
+      }
+      .div2:focus {
+        background-color: darkcyan;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div1" tabindex="1"></div>
+    <div class="div2" tabindex="2"></div>
+  </body>
+</html>

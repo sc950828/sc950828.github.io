@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>轻松实现 hover 图片变成另外一张图片</title>
+    <style>
+      .div1 {
+        width: 400px;
+        height: 200px;
+        background-size: 100%;
+        background-image: url("../images/js.jpg");
+      }
+
+      .div1:hover {
+        content: url("../images/node.jpg");
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div1"></div>
+  </body>
+</html>
