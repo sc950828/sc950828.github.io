@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>怎么解决 display: inline-block 元素间的间隙问题</title>
+    <style>
+      span {
+        width: 200px;
+        height: 200px;
+        display: inline-block;
+      }
+      .div1 {
+        background-color: aqua;
+      }
+      .div2 {
+        background-color: blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+      产生空白的原因 元素被当成行内元素排版的时候，元素之间的空白符（空格、回车换行等）都会被浏览器处理，
+      根据 CSS 中 white-space 属性的处理方式（默认是 normal，合并多余空白），原来 HTML 代码中的回车换行被转成一个空白符，在字体不为 0 的情况下，空白符占据一定宽度，
+      所以 inline-block 的元素之间就出现了空隙。
+      
+      解决办法
+        1. 有空格时候会有间隙 解决：移除空格，多个元素写在一行。
+        2. margin 正值的时候 解决：margin 使用负值。
+        3. 父元素使用 font-size: 0;这种方法的缺点是子元素会继承字体大小，所以需要再单独设置字体大小。
+        4. 使用 float。
+    -->
+    <span class="div1"></span>
+    <span class="div2"></span>
+  </body>
+</html>
