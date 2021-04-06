@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>拷贝</title>
+  </head>
+  <body>
+    <h3>打开控制台查看</h3>
+    <script>
+      var arr1 = [1, { name: "randy" }];
+      var arr2 = Array.from(arr1);
+      arr2[0] = 72;
+      arr2[1].name = "demi";
+      console.log(arr1[0]); // 1
+      console.log(arr2[0]); // 72
+      console.log(arr1[1]); // {name: 'demi'}
+      console.log(arr2[1]); //{name: 'demi'}
+
+      const obj1 = { name: "randy" };
+      const obj2 = { ...obj1 };
+      obj2.age = 24;
+      console.log(obj1);
+      console.log(obj2);
+      delete obj2.age;
+      console.log(obj2); // {name: "randy"}
+
+      //使用slice和concat方法
+      var arr = ["a", "b", "c"];
+      var arrCopy = arr.slice(0);
+      arrCopy[3] = "test";
+      console.log(arr); // ["a", "b", "c"]
+      console.log(arrCopy); // ["a", "b", "c", 'test']
+      arrCopy[0] = "randy";
+      console.log(arr);
+      console.log(arrCopy);
+
+      var arr = ["a", "b", "c"];
+      var arrCopy = arr.concat();
+      arrCopy[3] = "test";
+      console.log(arr); // ["a", "b", "c"]
+      console.log(arrCopy); // ["a", "b", "c", 'test']
+      arrCopy[0] = "randy";
+      console.log(arr);
+      console.log(arrCopy);
+
+      var arr = ["a", "b", "c"];
+      var arrCopy = Array.from(arr);
+      arrCopy[3] = "test";
+      console.log(arr); // ["a", "b", "c"]
+      console.log(arrCopy); // ["a", "b", "c", 'test']
+      arrCopy[0] = "randy";
+      console.log(arr);
+      console.log(arrCopy);
+
+      // 深拷贝
+      var ob1 = {
+        name: "randy",
+        age: 22,
+        address: { location: "湖南" },
+      };
+      var deepCopy = function (obj) {
+        if (typeof obj !== "object") return;
+        var newObj = obj instanceof Array ? [] : {};
+        for (var key in obj) {
+          if (obj.hasOwnProperty(key)) {
+            newObj[key] =
+              typeof obj[key] === "object" ? deepCopy(obj[key]) : obj[key];
+          }
+        }
+        return newObj;
+      };
+
+      const ob2 = deepCopy(ob1);
+      ob2.address.location = "汨罗";
+      console.log(ob1); // address: {location: "湖南"}, age: 22, name: "randy"
+      console.log(ob2); // address: {location: "汨罗"}, age: 22, name: "randy"
+    </script>
+  </body>
+</html>
