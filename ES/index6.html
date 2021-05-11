@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Animal {
+        constructor(type) {
+          this.type = type;
+        }
+        walk() {
+          console.log(`I am walking`);
+        }
+
+        get name() {
+          return "randy";
+        }
+
+        set name(val) {
+          this.type = val;
+        }
+
+        // 静态方法
+        static say() {
+          console.log("--say--");
+        }
+
+        // 静态属性
+        static name1 = "name1";
+      }
+
+      let dog = new Animal("dog");
+      dog.name = "demi";
+      console.log(dog.type);
+      console.log(dog.name);
+
+      Animal.say();
+      console.log(Animal.name);
+      console.log(Animal.name1);
+    </script>
+  </body>
+</html>

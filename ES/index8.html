@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const sym = Symbol("s1");
+      class User {
+        constructor(name) {
+          this.name = name;
+          this[sym] = "s1";
+        }
+        getName() {
+          return this.name + this[sym];
+        }
+      }
+      const user = new User("randy");
+      console.log(user.getName());
+
+      for (let key in user) {
+        console.log(key);
+      }
+
+      console.log("----Object.keys----");
+      for (let key of Object.keys(user)) {
+        console.log(key);
+      }
+
+      console.log("----Object.getOwnPropertySymbols----");
+      for (let key of Object.getOwnPropertySymbols(user)) {
+        console.log(key);
+      }
+
+      console.log("----Reflect.ownKeys----");
+      for (let key of Reflect.ownKeys(user)) {
+        console.log(key);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const user = {
+        name: "randy",
+        age: 24,
+      };
+
+      // 将Object属于语言内部的方法放到Reflect上
+
+      console.log("name" in user);
+
+      console.log(Reflect.has(user, "name"));
+      console.log(Reflect.ownKeys(user));
+      console.log(Reflect.deleteProperty(user, "age"));
+      console.log(user);
+    </script>
+  </body>
+</html>

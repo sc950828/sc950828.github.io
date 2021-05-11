@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const obj1 = {
+        name: "randy",
+        age: 24,
+      };
+      console.log(obj1.length);
+
+      const map = new Map([
+        ["name", "randy"],
+        ["age", 24],
+      ]);
+      console.log(map);
+
+      console.log(map.get("age"));
+      map.set("address", "miluo");
+      console.log(map);
+    </script>
+  </body>
+</html>

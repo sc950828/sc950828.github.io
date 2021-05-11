@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>proxy</title>
+  </head>
+  <body>
+    <script>
+      const user = {
+        name: "randy",
+        age: 24,
+      };
+
+      console.log("name" in user);
+
+      const _user = new Proxy(user, {
+        get(obj, key) {
+          console.log("get", obj, key);
+        },
+        set(obj, p, v) {
+          console.log("set", obj, p, v);
+          obj[p] = v;
+        },
+        has(obj, p) {
+          console.log("has");
+          return p in obj;
+        },
+        deleteProperty(obj, p) {
+          console.log("delete");
+          delete obj[p];
+        },
+        ownKeys(obj) {
+          console.log("ownKeys");
+          return Object.keys(obj);
+        },
+      });
+
+      _user.name;
+      console.log(_user);
+      _user.address = "miluo";
+      console.log(_user);
+      console.log("address" in _user);
+      delete _user.address;
+      console.log(_user);
+
+      for (const key in _user) {
+        console.log(key);
+      }
+    </script>
+  </body>
+</html>

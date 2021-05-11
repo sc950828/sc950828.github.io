@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function foo() {
+        // Uncaught ReferenceError: Cannot access 'a' before initialization
+        // console.log(a);
+        // let a = 5;
+        // Uncaught ReferenceError: Cannot access 'a' before initialization
+        // a = 6;
+        // let a;
+      }
+
+      foo();
+
+      // rest 参数
+      let [name1, name2, ...rest] = [
+        "Julius",
+        "Caesar",
+        "Consul",
+        "of the Roman Republic",
+      ];
+
+      console.log(name1); // Julius
+      console.log(name2); // Caesar
+
+      // Note that type of `rest` is Array.
+      console.log(rest[0]); // Consul
+      console.log(rest[1]); // of the Roman Republic
+      console.log(rest.length); // 2
+
+      // 嵌套对象解构
+      let options = {
+        size: {
+          width: 100,
+          height: 200,
+        },
+        items: ["Cake", "Donut"],
+        extra: true, // something extra that we will not destruct
+      };
+
+      const {
+        size: { width: _width },
+      } = options;
+      console.log(_width);
+    </script>
+  </body>
+</html>
