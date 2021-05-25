@@ -1,0 +1,22 @@
+name: my-blog-deploy
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Install and Build
+        run: |
+          npm install
+          npm run build
+      - name: Build and Deploy
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          ACCESS_TOKEN: ${{ secrets.TOKEN }}
+          BRANCH: dev
+          FOLDER: ./dist
