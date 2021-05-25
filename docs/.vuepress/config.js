@@ -13,7 +13,7 @@ module.exports = {
       { text: 'github', link: 'https://github.com/sc950828' },
     ]
   },
-  dest: path.resolve(__dirname, "../dist"),
+  dest: path.resolve(__dirname, "../../dist"),
   markdown: {
     lineNumbers: true
   }
