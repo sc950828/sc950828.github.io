@@ -12,5 +12,5 @@ features:
     details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
   - title: 高性能
     details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
-footer: 湘ICP备2021001552号-1 © 2021 Randy All Rights Reserved.
+footer: 湘ICP备2021001552号-1 湘公网安备 43068102001051号 © 2021 Randy All Rights Reserved.
 ---
