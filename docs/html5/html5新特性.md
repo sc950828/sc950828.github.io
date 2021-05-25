@@ -160,7 +160,15 @@ contenteditable="true"(可编辑状态，单击内容，可修改，p标签 tabl
 
 ## 拖放
 
+拖放是一种常见的特性，即抓取对象以后拖到另一个位置。
+
 ## 地理定位
+
+```js
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {});
+}
+```
 
 ## 音频视频
 

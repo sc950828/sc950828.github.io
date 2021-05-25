@@ -18,16 +18,32 @@ module.exports = {
         title: 'html5',
         path: '/html5',
         children: [
-          ['/html5/html5新特性', 'html5新特性']
+          ['/html5/html5新特性', 'html5新特性'],
+          ['/html5/h5移动端基础', 'h5移动端基础'],
+          ['/html5/h5移动端避坑指南', 'h5移动端避坑指南'],
         ]
       },
       {
         title: 'css3',
         path: '/css3',
         children: [
-          '/css3/css3新特性'
+          ['/css3/css3新特性', 'css3新特性']
         ]
-      }
+      },
+      // {
+      //   title: 'js',
+      //   path: '/js',
+      //   children: [
+      //     ['/js/js事件', 'js事件']
+      //   ]
+      // },
+      // {
+      //   title: 'ts',
+      //   path: '/ts',
+      //   children: [
+      //     ['/ts/数据类型', '数据类型']
+      //   ]
+      // }
     ]
   },
   dest: path.resolve(__dirname, "../../dist"),
