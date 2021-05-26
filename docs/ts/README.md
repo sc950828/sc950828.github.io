@@ -27,3 +27,7 @@
 [typescript 中文文档](https://www.tslang.cn/docs/home.html)
 
 [typescript 掘金小册](https://juejin.cn/book/6844733813021491207)
+
+## 工具网站
+
+[DefinitelyTyped 查找类型定义文件](https://github.com/DefinitelyTyped/DefinitelyTyped)
