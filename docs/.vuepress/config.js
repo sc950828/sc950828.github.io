@@ -30,24 +30,41 @@ module.exports = {
           ['/css3/css3新特性', 'css3新特性']
         ]
       },
-      // {
-      //   title: 'js',
-      //   path: '/js',
-      //   children: [
-      //     ['/js/js事件', 'js事件']
-      //   ]
-      // },
-      // {
-      //   title: 'ts',
-      //   path: '/ts',
-      //   children: [
-      //     ['/ts/数据类型', '数据类型']
-      //   ]
-      // }
+      {
+        title: 'js',
+        path: '/js',
+        children: [
+          ['/js/object', 'object'],
+          ['/js/this', 'this'],
+          ['/js/继承', '继承'],
+          ['/js/原型', '原型'],
+          ['/js/闭包', '闭包'],
+          ['/js/拷贝', '拷贝'],
+          ['/js/事件', '事件'],
+          ['/js/运行机制', '运行机制'],
+          ['/js/垃圾回收', '垃圾回收'],
+          ['/js/防抖与节流', '防抖与节流'],
+        ]
+      },
+      {
+        title: 'ts',
+        path: '/ts',
+        children: [
+          ['/ts/基础', '基础'],
+          ['/ts/数据类型', '数据类型'],
+          ['/ts/函数', '函数'],
+          ['/ts/接口', '接口'],
+          ['/ts/类', '类'],
+          ['/ts/泛型', '泛型'],
+          ['/ts/命名空间', '命名空间'],
+          ['/ts/装饰器', '装饰器'],
+          ['/ts/配置文件', '配置文件'],
+        ]
+      }
     ]
   },
   dest: path.resolve(__dirname, "../../dist"),
   markdown: {
-    lineNumbers: true
+    // lineNumbers: true
   }
 }

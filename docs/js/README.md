@@ -1,5 +1,25 @@
 ## js
 
+[object](/js/object)
+
+[this](/js/this)
+
+[继承](/js/继承)
+
+[原型](/js/原型)
+
+[闭包](/js/闭包)
+
+[拷贝](/js/拷贝)
+
+[事件](/js/事件)
+
+[运行机制](/js/运行机制)
+
+[垃圾回收](/js/垃圾回收)
+
+[防抖与节流](/js/防抖与节流)
+
 ## 学习资料
 
 [javascript 菜鸟教程](https://www.runoob.com/js/js-tutorial.html)
