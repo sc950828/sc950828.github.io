@@ -60,6 +60,16 @@ module.exports = {
           ['/ts/装饰器', '装饰器'],
           ['/ts/配置文件', '配置文件'],
         ]
+      },
+      {
+        title: 'webpack',
+        path: '/webpack',
+        children: [
+          ['/webpack/基础', '基础'],
+          ['/webpack/高级', '高级'],
+          ['/webpack/分析', '分析'],
+          ['/webpack/性能优化', '性能优化'],
+        ]
       }
     ]
   },
