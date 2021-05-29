@@ -40,6 +40,12 @@
 
 [掘金 1.5 万字概括 ES6 全部特性](https://juejin.cn/post/6844903959283367950)
 
+## 好文章
+
+[掘金 寒冬求职季之你必须要懂的原生 JS(上)](https://juejin.cn/post/6844903815053852685)
+
+[掘金 寒冬求职季之你必须要懂的原生 JS(中)](https://juejin.cn/post/6844903828093927431)
+
 ## 好用的库/插件
 
 [axios 请求](http://www.axios-js.com/zh-cn/docs/)

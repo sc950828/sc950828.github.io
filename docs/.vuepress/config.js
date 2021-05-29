@@ -70,6 +70,13 @@ module.exports = {
           ['/webpack/分析', '分析'],
           ['/webpack/性能优化', '性能优化'],
         ]
+      },
+      {
+        title: 'git',
+        path: '/git',
+        children: [
+          ['/git/基础', '基础'],
+        ]
       }
     ]
   },
