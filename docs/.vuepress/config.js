@@ -76,6 +76,7 @@ module.exports = {
         path: '/git',
         children: [
           ['/git/基础', '基础'],
+          ['/git/常见问题', '常见问题'],
         ]
       }
     ]
