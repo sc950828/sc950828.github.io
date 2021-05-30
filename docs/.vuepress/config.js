@@ -78,6 +78,16 @@ module.exports = {
           ['/git/基础', '基础'],
           ['/git/常见问题', '常见问题'],
         ]
+      },
+      {
+        title: 'web安全',
+        path: '/web安全',
+        children: [
+          ['/web安全/XSS', 'XSS'],
+          ['/web安全/CSRF', 'CSRF'],
+          ['/web安全/点击劫持', '点击劫持'],
+          ['/web安全/传输安全', '传输安全'],
+        ]
       }
     ]
   },
