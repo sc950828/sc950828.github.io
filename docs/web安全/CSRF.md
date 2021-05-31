@@ -1,6 +1,6 @@
 ## 定义
 
-CSRF(Cross Site Request Forgy) 全称跨站点请求伪造
+CSRF(Cross Site Request Forgy) 全称跨站点请求伪造。
 
 主要是在其他网站影响了本网站。在用户不知情的情况下在其他网站对本网站发起了一些请求。
 
@@ -8,7 +8,7 @@ CSRF(Cross Site Request Forgy) 全称跨站点请求伪造
 
 1. 用户登录 A 网站
 2. A 网站确认身份，返回 cookies
-3. 用户访问 B 网站，在 B 网站页面伪造请求向 A 网站发起请求并携带上 A 网站的 cookies
+3. 用户访问 B 网站，在 B 网站页面伪造请求（通过表单提交或者 img 图片，同域会自动带上 cookie 的特性）向 A 网站发起请求
 
 ## 防御
 
