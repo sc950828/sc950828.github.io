@@ -33,6 +33,10 @@ DNS 就是域名系统，作用是将域名解析成对应的 IP 地址。具体
 
 ## 网络请求
 
+### 网络链接
+
+![image](https://xiaosu72.oss-cn-shanghai.aliyuncs.com/blog/images/%E6%9C%AA%E5%91%BD%E5%90%8D1623221100.png)
+
 ### http 请求过程
 
 1. 首先如果是第一次请求，域名经过 DNS 服务器解析拿到映射的 IP
@@ -95,6 +99,12 @@ CDN 的存在解决了跨地域请求的时延问题；对服务器压力进行�
 ## 页面渲染阶段
 
 ![image](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7169ac55453c4138a61c1f733524ff5c~tplv-k3u1fbpfcp-watermark.image)
+
+1. 下载解析 HTML 文件，构建 DOM 树。下载解析 CSS 生成 CSSDOM 树。这两个是并行的。
+2. CSSDOM 树构建完成与 DOM 树组合形成 RenderObject 树。
+3. 根据 render 树布局（Layout），负责各元素尺寸、位置的计算。(涉及到回流)
+4. 根据 render 树绘制（paint），绘制页面像素信息。(涉及到重绘)
+5. 浏览器会将各层的信息发送给 GUI，GUI 将各层合成（composite），显示在屏幕上。
 
 ## 缓存常见问题
 

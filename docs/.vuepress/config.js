@@ -9,8 +9,11 @@ module.exports = {
   ],
   themeConfig: {
     nav: [
-      { text: '首页', link: '/' },
       { text: '导航', link: '/guide' },
+      { text: '个人收藏', items: [
+        { text: '好文章', link: '/个人收藏/好文章' },
+        { text: '面试好文章', link: '/个人收藏/面试好文章' }
+      ] },
       { text: 'github', link: 'https://github.com/sc950828' },
     ],
     sidebar: [
@@ -67,8 +70,7 @@ module.exports = {
         children: [
           ['/webpack/基础', '基础'],
           ['/webpack/高级', '高级'],
-          ['/webpack/分析', '分析'],
-          ['/webpack/性能优化', '性能优化'],
+          ['/webpack/分析', '分析']
         ]
       },
       {
@@ -76,6 +78,7 @@ module.exports = {
         path: '/git',
         children: [
           ['/git/基础', '基础'],
+          ['/git/gitignore', 'gitignore'],
           ['/git/常见问题', '常见问题'],
         ]
       },
@@ -103,6 +106,9 @@ module.exports = {
           ['/性能优化/渲染优化', '渲染优化'],
           ['/性能优化/代码优化', '代码优化'],
           ['/性能优化/资源优化', '资源优化'],
+          ['/性能优化/webpack构建优化', 'webpack 构建优化'],
+          ['/性能优化/传输加载优化', '传输加载优化'],
+          ['/性能优化/前沿优化方案', '前沿优化方案'],
           ['/性能优化/从输入url到页面渲染全链路分析', '从输入url到页面渲染全链路分析'],
         ]
       }

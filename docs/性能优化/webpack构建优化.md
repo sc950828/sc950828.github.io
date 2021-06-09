@@ -71,7 +71,7 @@ cacheDirectory：默认值为 false。当有设置时，指定的目录将用来
 
 ### DllPlugin DllReferencePlugin
 
-使第三方模块只打包一次，加快我们的打包速度。
+使第三方模块只打包一次，避免重复构建，加快我们的打包速度。
 
 把第三方包单独打包，会生成对应的 vendors.dll.js 和 vendors.manifest.json 文件
 
@@ -210,6 +210,7 @@ module.exports = {
   //...
   module: {
     noParse: /jquery|lodash/,
+    // rules: []
   },
 };
 ```
@@ -242,6 +243,8 @@ import "moment/locale/zh-cn"; // 手动引入
 
 ### 压缩
 
+使用 html-webpacl-plugin 插件配置 minify 压缩 html
+
 使用 uglifyjs-webpack-plugin(不支持 ES6 webpack4 以前) 和 terser-webpack-plugin(webpack4 及以后)。
 
 使用 optimize-css-assets-webpack-plugin 插件压缩 css。
@@ -250,7 +253,15 @@ import "moment/locale/zh-cn"; // 手动引入
 
 使用 compression-webpack-plugin 插件，把项目打包成 Gzip 文件，加速请求获取时间，提升响应速度。
 
+### 作用域提升 scope hoisting
+
+在打包生产环境的时候，webpack 会自动启用作用域提升，作用域提升能分析代码依赖关系，进行合并，减小代码体积。
+
+需要使用 ES 模块化方案才能使用 作用域提升
+
 ### Tree Shaking
+
+需要使用 ES 模块化方案才能使用 Tree Shaking
 
 使用 Tree Shaking 剔除没用到的 js，减小包体积加快渲染速度
 
