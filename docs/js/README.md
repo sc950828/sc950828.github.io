@@ -1,6 +1,12 @@
 ## js
 
-[object](/js/object)
+[数据类型](/js/数据类型)
+
+[Object](/js/object)
+
+[DOM](/js/DOM)
+
+[BOM](/js/BOM)
 
 [this](/js/this)
 

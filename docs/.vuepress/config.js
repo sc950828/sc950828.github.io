@@ -37,7 +37,10 @@ module.exports = {
         title: 'js',
         path: '/js',
         children: [
-          ['/js/object', 'object'],
+          ['/js/数据类型', '数据类型'],
+          ['/js/object', 'Object'],
+          ['/js/DOM', 'DOM'],
+          ['/js/BOM', 'BOM'],
           ['/js/this', 'this'],
           ['/js/继承', '继承'],
           ['/js/原型', '原型'],
