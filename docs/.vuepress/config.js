@@ -118,6 +118,7 @@ module.exports = {
         title: 'vue',
         path: '/vue',
         children: [
+          ['/vue/源码分析', '源码分析'],
           ['/vue/vue2和vue3区别', 'vue2和vue3区别']
         ]
       }

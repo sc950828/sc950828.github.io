@@ -5,3 +5,7 @@ vue2 采用 flow 进行静态类型检查工具，而 vue3 使用 typescript 作
 ## 构建
 
 vue2 使用 rollup 构建，而 vue3 使用 webpack 进行构建。
+
+## 响应式
+
+vue2 使用 Object.defineProperty 方法，vue3 使用 proxy 方法。
