@@ -24,4 +24,34 @@
 
 [Vue.js 源码技术揭秘](https://ustbhuangyi.github.io/vue-analysis/)
 
+[剖析 Vue.js 内部运行机制 掘金小册](https://juejin.cn/book/6844733705089449991)
+
+[Vue.js 组件精讲 掘金小册](https://juejin.cn/book/6844733759942557704)
+
+[Vue 项目构建与开发入门](https://juejin.cn/book/6844733734143393805)
+
 ## 好用的库/插件
+
+[vue-slick-carousel 轮播](https://github.com/gs-shop/vue-slick-carousel)
+
+[vue-infinite-scroll 下拉加载](https://github.com/ElemeFE/vue-infinite-scroll)
+
+[mavonEditor markdown 插件](https://github.com/hinesboy/mavonEditor)
+
+[wangEditor 富文本编辑器插件](https://github.com/wangeditor-team/wangEditor)
+
+[vue-quill-editor 富文本编辑器插件](https://github.com/surmon-china/vue-quill-editor)
+
+[vue2-editor 富文本编辑器插件](https://github.com/davidroyer/vue2-editor)
+
+[Vue.Draggable 拖拽](https://github.com/SortableJS/Vue.Draggable)
+
+[vue-video-player 视频播放](https://github.com/surmon-china/vue-video-player)
+
+[vue-scroll-reveal 滚动动画](https://github.com/tserkov/vue-scroll-reveal)
+
+[vue-cropper 图片裁剪](https://github.com/xyxiao001/vue-cropper)
+
+[vue-image-crop-upload 图片裁剪并上传](https://github.com/dai-siki/vue-image-crop-upload)
+
+[vuex-persistedstate vuex 持久化存储](https://github.com/robinvdvleuten/vuex-persistedstate)
