@@ -55,13 +55,3 @@
 [vue-image-crop-upload 图片裁剪并上传](https://github.com/dai-siki/vue-image-crop-upload)
 
 [vuex-persistedstate vuex 持久化存储](https://github.com/robinvdvleuten/vuex-persistedstate)
-
-## 好文章
-
-[Vue 开发必须知道的 36 个技巧【近 1W 字】](https://juejin.cn/post/6844903959266590728)
-
-[30 道 Vue 面试题，内含详细讲解（涵盖入门到精通，自测 Vue 掌握程度）](https://juejin.cn/post/6844903918753808398)
-
-[10 个 Vue 开发技巧助力成为更好的工程师](https://juejin.cn/post/6844904115949027336)
-
-[你不知道的 React 和 Vue 的 20 个区别](https://juejin.cn/post/6847009771355127822)
