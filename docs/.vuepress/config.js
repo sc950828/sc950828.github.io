@@ -119,6 +119,9 @@ module.exports = {
         path: '/vue',
         children: [
           ['/vue/源码分析', '源码分析'],
+          ['/vue/nextTick分析', 'nextTick分析'],
+          ['/vue/vuex分析', 'vuex分析'],
+          ['/vue/router分析', 'router分析'],
           ['/vue/vue2和vue3区别', 'vue2和vue3区别']
         ]
       }
