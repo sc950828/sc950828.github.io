@@ -24,13 +24,18 @@ module.exports = {
           ['/html5/html5新特性', 'html5新特性'],
           ['/html5/h5移动端基础', 'h5移动端基础'],
           ['/html5/h5移动端避坑指南', 'h5移动端避坑指南'],
+          ['/html5/知识点', '知识点'],
         ]
       },
       {
         title: 'css3',
         path: '/css3',
         children: [
-          ['/css3/css3新特性', 'css3新特性']
+          ['/css3/css3新特性', 'css3新特性'],
+          ['/css3/选择器', '选择器'],
+          ['/css3/布局', '布局'],
+          ['/css3/Postcss', 'Postcss'],
+          ['/css3/知识点', '知识点'],
         ]
       },
       {

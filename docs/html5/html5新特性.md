@@ -12,6 +12,10 @@ html5 新特性笔者做了如下总结。
 8. web workers
 9. sse
 10. websocket
+11. History API
+12. 在线和离线事件
+13. 全屏 API
+14. requestAnimationFrame ： 允许控制动画渲染以获得更优性能
 
 ## 文档类型
 
@@ -192,22 +196,6 @@ web 存储包括 localStorage 和 sessionStorage
 - localStorage/sessionStorage.clear() // 删除所有数据
 - localstorage/sessionStorage.key(index) //获取某个索引位置的 key，index 从下标 0 开始。
 
-#### localStorage 和 sessionStorage 的特点
-
-1. localStorage 只要在相同的协议、相同的主机名、相同的端口下，就能读取/修改到同一份 localStorage 数据。
-2. sessionStorage 比 localStorage 更严苛一点，除了协议、主机名、端口外，还要求在同一窗口。
-3. localStorage 会永久存在除非手动清除。
-4. sessionStorage 在关闭页面或浏览器的时候就会清除。
-5. localStorage 和 sessionStorage key 必须是字符串类型。**存储的数据值都是字符串类型的数据，取出来的数据也是字符串类型，因此如果存储的对象不是字符串，则要转换成字符串数据类型。**
-6. localStorage 和 sessionStorage 存储大小可以达到 5M 或更大。
-
-#### cookie
-
-1. cookie 数据始终在同源（协议、主机、端口相同）的 http 请求中携带（即使不需要），会在浏览器和服务器间来回传递。
-2. cookie 数据大小不能超过 4 k。
-3. cookie 设置的 cookie 过期时间之前一直有效，即使窗口或浏览器关闭。
-4. cookie 在所有同源窗口中都是共享的。
-
 ### web sql
 
 ### 离线存储
@@ -240,4 +228,14 @@ HTML5 服务器发送事件（server-sent event）允许网页获得来自服务
 
 ## websocket
 
-WebSocket 是 HTML5 开始提供的一种在单个 TCP 连接上进行全双工通讯的协议
+WebSocket 是 HTML5 开始提供的一种在单个 TCP 连接上进行全双工通讯的协议。
+
+WebSocket 是基于 HTTP 协议的 ： 借用了 Http 协议来完成一部分握手
+
+## History API
+
+## 在线和离线事件
+
+## 全屏 API
+
+## requestAnimationFrame ： 允许控制动画渲染以获得更优性能

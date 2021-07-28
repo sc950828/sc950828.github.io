@@ -6,6 +6,8 @@
 
 [h5 移动端避坑指南](/html5/h5移动端避坑指南)
 
+[知识点](/html5/知识点)
+
 ## 学习资料
 
 [html 菜鸟教程](https://www.runoob.com/html/html-tutorial.html)
