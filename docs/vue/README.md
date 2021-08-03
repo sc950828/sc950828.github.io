@@ -2,6 +2,14 @@
 
 [vue 源码分析](/vue/源码分析)
 
+[nextTick 分析](/vue/nextTick分析)
+
+[vuex 分析](/vue/vuex分析)
+
+[router 分析](/vue/router分析)
+
+[vue3](/vue/vue3)
+
 [vue2 和 vue3 区别](/vue/vue2和vue3区别)
 
 ## 学习文档
@@ -55,3 +63,7 @@
 [vue-image-crop-upload 图片裁剪并上传](https://github.com/dai-siki/vue-image-crop-upload)
 
 [vuex-persistedstate vuex 持久化存储](https://github.com/robinvdvleuten/vuex-persistedstate)
+
+[v-viewer 图片预览](https://github.com/mirari/v-viewer)
+
+[vue-lazyload 图片懒加载](https://github.com/hilongjw/vue-lazyload)

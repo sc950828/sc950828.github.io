@@ -2,10 +2,6 @@
 
 vue2 采用 flow 进行静态类型检查工具，而 vue3 使用 typescript 作为代码检查工具。
 
-## 构建
-
-vue2 使用 rollup 构建，而 vue3 使用 webpack 进行构建。
-
 ## 响应式
 
 vue2 使用 Object.defineProperty 方法，vue3 使用 proxy 方法。
@@ -21,3 +17,30 @@ vue2 使用 Object.defineProperty 方法，vue3 使用 proxy 方法。
 1. Proxy 支持监听原生数组
 2. Proxy 的获取数据，只会递归到需要获取的层级，不会继续递归
 3. Proxy 可以监听数据的手动新增和删除
+
+## composition API
+
+vue3 的 composition API 可以使相同模块写在一起，不像 vue2 一样分开的很散。将零散分布的逻辑组合在一起来维护，并且还可以将单独的功能逻辑拆分成单独的文件。
+
+## 全局 API
+
+在 Vue3 中，全局和内部 API 都经过了重构，并考虑到了 tree-shaking 的支持。因此，全局 API 现在只能作为 ES 模块构建的命名导出进行访问。
+
+vue2
+
+```js
+this.$nextTick(() => {});
+```
+
+vue3
+
+```js
+import { nextTick } from "vue";
+nextTick(() => {
+  // 一些和DOM有关的东西
+});
+```
+
+## 生命周期不同
+
+vue3 中生命周期需要自己引入，而且新增了两个生命周期方法 onRenderTriggered 和 onRenderTricked

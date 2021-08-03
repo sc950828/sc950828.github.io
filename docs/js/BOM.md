@@ -19,7 +19,7 @@ navigator.connection||navigator.mozConnection||navigator.webkitConnection
 - navigator.userAgent 判断浏览器类型
 - navigator.appVersion 判断浏览器版本
 
-### 获取页面是否是否可见
+### 获取页面是否可见
 
 当页面被最小化或者被切换成后台标签页时，页面为不可见，浏览器会触发一个 visibilitychange 事件,并设置 document.hidden 属性为 true；切换到显示状态时，页面为可见，也同样触发一个 visibilitychange 事件，设置 document.hidden 属性为 false。
 

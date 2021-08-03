@@ -127,7 +127,8 @@ module.exports = {
           ['/vue/nextTick分析', 'nextTick分析'],
           ['/vue/vuex分析', 'vuex分析'],
           ['/vue/router分析', 'router分析'],
-          ['/vue/vue2和vue3区别', 'vue2和vue3区别']
+          ['/vue/vue3', 'vue3'],
+          ['/vue/vue2和vue3区别', 'vue2和vue3区别'],
         ]
       }
     ]
