@@ -130,6 +130,16 @@ module.exports = {
           ['/vue/vue3', 'vue3'],
           ['/vue/vue2和vue3区别', 'vue2和vue3区别'],
         ]
+      },
+      {
+        title: '计算机',
+        path: '/计算机',
+        children: [
+          ['/计算机/计算机网络', '计算机网络'],
+          ['/计算机/HTTP', 'HTTP'],
+          ['/计算机/HTTPS', 'HTTPS'],
+          ['/计算机/TCP和UDP', 'TCP和UDP'],
+        ]
       }
     ]
   },

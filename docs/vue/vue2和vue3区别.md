@@ -2,6 +2,10 @@
 
 vue2 采用 flow 进行静态类型检查工具，而 vue3 使用 typescript 作为代码检查工具。
 
+## 语言
+
+vue2 使用 js 编写，vue3 使用 ts 编写
+
 ## 响应式
 
 vue2 使用 Object.defineProperty 方法，vue3 使用 proxy 方法。

@@ -4,21 +4,29 @@ CSRF(Cross Site Request Forgy) 全称跨站点请求伪造。
 
 主要是在其他网站影响了本网站。在用户不知情的情况下在其他网站对本网站发起了一些请求。
 
+一般是黑客诱导用户点击链接，打开黑客的网站，然后黑客利用用户目前的登录状态发起跨站请求。
+
 ## 攻击原理
 
 1. 用户登录 A 网站
 2. A 网站确认身份，返回 cookies
 3. 用户访问 B 网站，在 B 网站页面伪造请求（通过表单提交或者 img 图片，同域会自动带上 cookie 的特性）向 A 网站发起请求
 
+## CSRF 攻击一般会有三种方式:
+
+1. 自动 GET 请求 （以加载图片的方式）
+2. 自动 POST 请求 （隐藏表单）
+3. 诱导点击发送 GET 请求。 （超链接）
+
 ## 防御
 
 ### SameSite
 
-利用 cookie 的新特性 SameSite 来控制 cookie 的使用。
+利用 cookie 的新特性 SameSite 来控制 cookie 的使用。SameSite 可以设置为三个值，Strict、Lax 和 None。
 
-当 SameSite=Strict 的时候，任何第三方的请求都不允许带上 cookie
-
-当 SameSite=Lax 的时候允许第三方链接带上 cookie
+1. 当 SameSite=Strict 的时候，任何第三方的请求都不允许带上 cookie，比如请求 randy.com 网站只能在 randy.com 域名当中请求才能携带 Cookie，在其他网站请求都不能。
+2. 当 SameSite=Lax 的时候就宽松一点了，但是只能在 get 方法提交表单况或者 a 标签发送 get 请求的情况下可以携带 Cookie，其他情况均不能。
+3. None 模式下，也就是默认模式，请求会自动携带上 Cookie。
 
 缺点是目前只有 Chrome 浏览器支持，支持度并不高。
 

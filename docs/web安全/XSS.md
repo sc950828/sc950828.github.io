@@ -46,13 +46,9 @@ const data = "#{data}";
 
 ### 自动防御
 
-Chrome 有自己的一套防御，但是只能防御部分反射型的攻击。也就是通过 url 传递脚本进行 html 节点内容 或 html 属性注入攻击的时候会被拦截，通过 javascript 代码或者富文本注入攻击并不会被拦截。
+Chrome 有自己的一套防御，但是只能防御部分反射型的攻击。也就是通过 url 传递脚本进行 html 节点内容 或 html 属性注入攻击的时候会被拦截，通过 javascript 代码或者富文本注入攻击并不会被拦截。这对反射性 xss 攻击很有效。
 
 我们可以设置响应头 `X-XSS-Protection` 为 0 来关闭自动防御。默认值是 1，也就是自动防御。
-
-### http-only
-
-如果只针对 cookie，我们可以设置 cookie 的 http-only 属性为 true，这样 cookie 就不能通过 js 操作了，这样就算别人 XSS 攻击也拿不到我们的 cookie 了。
 
 ### html 转义
 
@@ -81,6 +77,10 @@ html.replace(/<\s*\/?script\s*>/g, "");
 
 - 我们可以利用[cheerio](https://github.com/cheeriojs/cheerio)库解析 html 文本，然后自定义过滤。
 - 我们还可以使用别人写好的库 [xss](https://github.com/leizongmin/js-xss)来直接使用。
+
+### http-only
+
+如果只针对 cookie，我们可以设置 cookie 的 http-only 属性为 true，这样 cookie 就不能通过 js 操作了，这样就算别人 XSS 攻击也拿不到我们的 cookie 了。
 
 ### CSP
 

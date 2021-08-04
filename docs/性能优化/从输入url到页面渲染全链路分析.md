@@ -66,7 +66,7 @@ DNS 就是域名系统，作用是将域名解析成对应的 IP 地址。具体
 
 - 强缓存分为 expires、cache-control 两种，两者同时存在，cache-control 优先级高
 
-- expires 是 http1.0 的定义，返回一个绝对的时间 GMT，为过期时间。这就导致如果服务器时间和浏览器时间不一致，可能会使缓存失效。
+- expires 是 http1.0 的定义，服务端返回一个绝对的时间 GMT，为过期时间。这就导致如果服务器时间和浏览器时间不一致，可能会使缓存失效。
 
 - cache-control 是 http1.1 的定义
 
