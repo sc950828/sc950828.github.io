@@ -140,6 +140,14 @@ module.exports = {
           ['/计算机/HTTPS', 'HTTPS'],
           ['/计算机/TCP和UDP', 'TCP和UDP'],
         ]
+      },
+      {
+        title: 'app',
+        path: '/app',
+        children: [
+          ['/app/移动开发简介', '移动开发简介'],
+          ['/app/Hybrid', 'Hybrid'],
+        ]
       }
     ]
   },
