@@ -218,3 +218,7 @@ UDP 不止支持一对一的传输方式，同样支持一对多，多对多，�
 - 16 位整个数据报文的长度
 - 16 位整个数据报文的检验和（IPv4 可选字段），该字段用于发现头部信息和数据中的错误
 - 所以 UDP 的头部开销小，只有 8 字节，相比 TCP 的至少 20 字节要少得多，在传输数据报文时是很高效的
+
+## TCP UDP 对比
+
+![image](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/90ea5411b2834e19825740de1de0b4fb~tplv-k3u1fbpfcp-watermark.awebp)

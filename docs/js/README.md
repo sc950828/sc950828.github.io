@@ -26,6 +26,8 @@
 
 [防抖与节流](/js/防抖与节流)
 
+[请求](/js/请求)
+
 ## 学习资料
 
 [javascript 菜鸟教程](https://www.runoob.com/js/js-tutorial.html)
