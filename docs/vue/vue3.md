@@ -863,3 +863,102 @@ Vue3 移除了 filter
 ### 获取组件实例
 
 获取组件实例方法 getCurrentInstance()，这个方法可以获取到当前组件的实例，相当于 Vue2 中的 this
+
+## 路由
+
+### 使用方式
+
+因为我们在 setup 里面没有访问 this，所以我们不能再直接访问 this.$router 或 this.$route。作为替代，我们使用 useRouter 函数：
+
+```js
+import { useRouter, useRoute } from "vue-router";
+
+export default {
+  setup() {
+    const router = useRouter();
+    const route = useRoute();
+
+    function pushWithQuery(query) {
+      router.push({
+        name: "search",
+        query: {
+          ...route.query,
+        },
+      });
+    }
+
+    const userData = ref();
+
+    // 当参数更改时获取用户信息
+    watch(
+      () => route.params,
+      async (newParams) => {
+        userData.value = await fetchUser(newParams.id);
+      }
+    );
+  },
+};
+```
+
+请注意，在模板中我们仍然可以访问 $router 和 $route，所以不需要在 setup 中返回 router 或 route。
+
+### 导航守卫
+
+```js
+import { onBeforeRouteLeave, onBeforeRouteUpdate } from "vue-router";
+
+export default {
+  setup() {
+    // 与 beforeRouteLeave 相同，无法访问 `this`
+    onBeforeRouteLeave((to, from) => {
+      const answer = window.confirm(
+        "Do you really want to leave? you have unsaved changes!"
+      );
+      // 取消导航并停留在同一页面上
+      if (!answer) return false;
+    });
+
+    const userData = ref();
+
+    // 与 beforeRouteLeave 相同，无法访问 `this`
+    onBeforeRouteUpdate(async (to, from) => {
+      //仅当 id 更改时才获取用户，例如仅 query 或 hash 值已更改
+      if (to.params.id !== from.params.id) {
+        userData.value = await fetchUser(to.params.id);
+      }
+    });
+  },
+};
+```
+
+组合式 API 守卫也可以用在任何由 `<router-view>` 渲染的组件中，它们不必像组件内守卫那样直接用在路由组件上。
+
+## vuex
+
+### 使用方式
+
+可以通过调用 useStore 函数，来在 setup 钩子函数中访问 store。这与在组件中使用选项式 API 访问 `this.$store` 是等效的。
+
+```js
+import { useStore } from "vuex";
+
+export default {
+  setup() {
+    const store = useStore();
+
+    return {
+      // 在 computed 函数中访问 state
+      count: computed(() => store.state.count),
+
+      // 在 computed 函数中访问 getter
+      double: computed(() => store.getters.double),
+
+      // 使用 mutation
+      increment: () => store.commit("increment"),
+
+      // 使用 action
+      asyncIncrement: () => store.dispatch("asyncIncrement"),
+    };
+  },
+};
+```
