@@ -1,10 +1,10 @@
 ## webpack
 
-[基础](/webpack/基础)
+[webpack 基础](/构建/webpack基础)
 
-[高级](/webpack/高级)
+[webpack 高级](/构建/webpack高级)
 
-[分析](/webpack/分析)
+[webpack 分析](/构建/webpack分析)
 
 ## 学习资料
 

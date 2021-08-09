@@ -73,21 +73,21 @@ module.exports = {
         ]
       },
       {
-        title: 'webpack',
-        path: '/webpack',
-        children: [
-          ['/webpack/基础', '基础'],
-          ['/webpack/高级', '高级'],
-          ['/webpack/分析', '分析']
-        ]
-      },
-      {
         title: 'git',
         path: '/git',
         children: [
           ['/git/基础', '基础'],
           ['/git/gitignore', 'gitignore'],
           ['/git/常见问题', '常见问题'],
+        ]
+      },
+      {
+        title: '构建',
+        path: '/构建',
+        children: [
+          ['/构建/webpack基础', 'webpack基础'],
+          ['/构建/webpack高级', 'webpack高级'],
+          ['/构建/webpack分析', 'webpack分析']
         ]
       },
       {
@@ -139,6 +139,14 @@ module.exports = {
           ['/计算机/HTTP', 'HTTP'],
           ['/计算机/HTTPS', 'HTTPS'],
           ['/计算机/TCP和UDP', 'TCP和UDP'],
+          ['/计算机/跨域', '跨域'],
+          ['/计算机/计算机组成原理基础', '计算机组成原理基础'],
+          ['/计算机/计算机组成原理计算', '计算机组成原理计算'],
+          ['/计算机/计算机组成原理组成', '计算机组成原理组成'],
+          ['/计算机/操作系统基础', '操作系统基础'],
+          ['/计算机/linux常用命令', 'linux常用命令'],
+          ['/计算机/linux文件权限', 'linux文件权限'],
+          ['/计算机/shell', 'shell'],
         ]
       },
       {

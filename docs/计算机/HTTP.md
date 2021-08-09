@@ -20,7 +20,7 @@ HTTP 有两种连接模式，一种是持续连接，一种非持续连接。非
 
 空行主要用来区分开头部和实体
 
-## 请求行 响应行包括什么？
+## 请求行 状态行包括什么？
 
 - 请求行有协议版本 请求路径 请求方法
 - 状态行有协议版本 状态码 相应的状态信息(原因)
@@ -46,32 +46,6 @@ HTTP 有两种连接模式，一种是持续连接，一种非持续连接。非
     If-Modify-Since 协商缓存标志 值等于上次响应的last-Modify的值
     If-None-Match 协商缓存标志 值等于上次响应的ETag字符串
 
-    对 Accept 系列字段了解多少？
-
-    对于 Accept 系列字段的介绍分为四个部分: 数据格式、压缩方式、支持语言和字符集。
-    浏览器告知服务器自己对这四个部分想要收到特定类型的数据。
-
-    客户端接收数据想要的数据格式 Accept
-
-    - text： text/html, text/plain, text/css 等
-    - image: image/gif, image/jpeg, image/png 等
-    - audio/video: audio/mpeg, video/mp4 等
-    - application: application/json, application/javascript, application/pdf, application/octet-stream
-
-    客户端接收数据想要的数据压缩格式 Accept-Encoding
-
-    - gzip: 当今最流行的压缩格式
-    - deflate: 另外一种著名的压缩格式
-    - br: 一种专门为 HTTP 发明的压缩算法
-
-    客户端接收数据想要的语言类型 Accept-Language
-
-    - Accept-Language: zh-CN, zh, en
-
-    客户端就收数据想要的字符集 Accept-Charset
-
-    - Accept-Charset: charset=utf-8
-
 ## 常见的响应头有什么？
 
     Expires 是否强缓存 (老版本)是个将来的时间戳，有问题后来使用cache-control
@@ -79,6 +53,7 @@ HTTP 有两种连接模式，一种是持续连接，一种非持续连接。非
     Cache-Control 是否强缓存 他的max-age值表示在多少时间内有效
     Content-Type 响应的数据类型
     Content-Encoding 告诉浏览器数据压缩的格式
+    Content-Language 告诉浏览器使用的语言
     Access-Control-Allow-Origin 指定哪些域名可以访问服务器
     Access-Control-Allow-Methods 哪些方法
     Access-Control-Allow-Headers 哪些请求头
@@ -97,6 +72,33 @@ HTTP 有两种连接模式，一种是持续连接，一种非持续连接。非
     Content-Length
     Content-Language
     Content-Encoding
+
+## 对 Accept 系列字段了解多少？
+
+    对于 accept 系列字段的介绍分为四个部分: 数据格式、压缩方式、支持语言和字符集。
+    浏览器告知服务器自己对这四个部分想要收到特定类型的数据。
+
+    客户端接收数据想要的数据格式 accept 对于应服务端的content-type
+
+    - text： text/html, text/plain, text/css 等
+    - image: image/gif, image/jpeg, image/png 等
+    - audio/video: audio/mpeg, video/mp4 等
+    - application: application/json, application/javascript, application/pdf, application/octet-stream
+
+    客户端接收数据想要的数据压缩格式 accept-encoding 对应服务端的 content-encoding
+
+    - gzip: 当今最流行的压缩格式
+    - deflate: 另外一种著名的压缩格式
+    - br: 一种专门为 HTTP 发明的压缩算法
+
+    客户端接收数据想要的语言类型 accept-language 对应服务端的content-language
+
+    - accept-language: zh-CN, zh, en
+
+    客户端就收数据想要的字符集 accept-charset 服务端没有对应的content-charset, 而是直接放在了content-type中，以charset属性指定。
+
+    - Accept-Charset: charset=utf-8
+    - Content-Type: text/html; charset=utf-8
 
 ## 状态码表示什么含义？列出一些常见的状态码？
 
@@ -251,3 +253,186 @@ URI 编码
 URI 只能使用 ASCII, ASCII 之外的字符是不支持显示的，而且还有一部分符号是界定符，如果不加以处理就会导致解析出错。
 
 因此，URI 引入了编码机制，将所有非 ASCII 码字符和界定符转为十六进制字节值，然后在前面加个%。例如空格被转义成了%20
+
+## 对于定长和不定长的数据，HTTP 是怎么传输的？
+
+对于定长包体而言，发送端在传输的时候一般会带上 Content-Length, 来指明包体的长度。
+
+对于不定长包体而言利用到另外一个头部字段 Transfer-Encoding: chunked 表示分块传输数据，设置这个字段后会自动产生两个效果:
+
+- Content-Length 字段会被忽略
+- 基于长连接持续推送动态内容
+
+## HTTP 如何处理大文件的传输？
+
+对于几百 M 甚至上 G 的大文件来说，如果要一口气全部传输过来显然是不现实的，会有大量的等待时间，严重影响用户体验。因此，HTTP 针对这一场景，采取了范围请求的解决方案，允许客户端仅仅请求一个资源的一部分。
+
+当然，前提是服务器要支持范围请求，要支持这个功能，就必须加上这样一个响应头:
+Accept-Ranges: none 用来告知客户端这边是支持范围请求的。
+
+而对于客户端而言，它需要指定请求哪一部分，通过 Range 这个请求头字段确定，格式为 bytes=x-y。接下来就来讨论一下这个 Range 的书写格式:
+
+- 0-499 表示从开始到第 499 个字节。
+- 500- 表示从第 500 字节到文件终点。
+- -100 表示文件的最后 100 个字节。
+
+服务器收到请求之后，首先验证范围是否合法，如果越界了那么返回 416 错误码，否则读取相应片段，返回 206 状态码。同时，服务器需要添加 Content-Range 字段，这个字段的格式根据请求头中 Range 字段的不同而有所差异。具体来说，请求单段数据和请求多段数据，响应头是不一样的。
+
+请求
+
+```
+// 单段数据
+Range: bytes=0-9
+// 多段数据
+Range: bytes=0-9, 30-39
+```
+
+对于单段数据的请求，返回的响应如下:
+
+```
+HTTP/1.1 206 Partial Content
+Content-Length: 10
+Accept-Ranges: bytes
+Content-Range: bytes 0-9/100
+
+i am xxxxx
+```
+
+Content-Range 字段，0-9 表示请求的返回，100 表示资源的总大小，很好理解。
+
+对于多段数据的请求，返回的响应如下:
+
+```
+HTTP/1.1 206 Partial Content
+Content-Type: multipart/byteranges; boundary=00000010101
+Content-Length: 189
+Connection: keep-alive
+Accept-Ranges: bytes
+
+
+--00000010101
+Content-Type: text/plain
+Content-Range: bytes 0-9/96
+
+i am xxxxx
+--00000010101
+Content-Type: text/plain
+Content-Range: bytes 20-29/96
+
+eex jspy e
+--00000010101--
+```
+
+这个时候出现了一个非常关键的字段 Content-Type: multipart/byteranges;boundary=00000010101，它代表了信息量是这样的:
+
+- 请求一定是多段数据请求
+- 响应体中的分隔符是 00000010101
+
+因此，在响应体中各段数据之间会由这里指定的分隔符分开，而且在最后的分隔末尾添上--表示结束。
+
+## HTTP 中如何处理表单数据的提交？
+
+在 http 中，有两种主要的表单提交的方式，体现在两种不同的 Content-Type 取值:
+
+- application/x-www-form-urlencoded
+- multipart/form-data
+
+由于表单提交一般是 POST 请求，很少考虑 GET，因此这里我们将默认提交的数据放在请求体中。
+
+对于 application/x-www-form-urlencoded 格式的表单内容，有以下特点:
+
+- 其中的数据会被转换成以&分隔的键值对
+- 字符以 URL 编码方式编码。
+
+```
+// 转换过程:
+{a: 1, b: 2} -> a=1&b=2
+"a%3D1%26b%3D2"
+```
+
+对于 multipart/form-data 而言:
+
+- 请求头中的 Content-Type 字段会包含 boundary，且 boundary 的值由浏览器默认指定。例: Content-Type: multipart/form-data;boundary=----WebkitFormBoundaryRRJKeWfHPGrS4LKe。
+- 数据会分为多个部分，每两个部分之间通过分隔符来分隔，每部分表述均有 HTTP 头部描述子包体，如 Content-Type，在最后的分隔符会加上--表示结束。
+
+```
+Content-Disposition: form-data;name="data1";
+Content-Type: text/plain
+data1
+----WebkitFormBoundaryRRJKeWfHPGrS4LKe
+Content-Disposition: form-data;name="data2";
+Content-Type: text/plain
+data2
+----WebkitFormBoundaryRRJKeWfHPGrS4LKe--
+```
+
+## HTTP/1.1 有哪些改进
+
+1、增加持久性连接
+
+也就是多个请求和响应可以利用同一个 TCP 连接，而不是每一次请求响应都要新建一个 TCP 连接，减少了建立和关闭连接的消耗和延迟。
+
+2、增加管道机制
+
+增加了管道机制，请求可以同时发出，但是响应必须按照请求发出的顺序依次返回，性能在一定程度上得到了改善。
+
+3、分块传输
+
+在 HTTP/1.1 版本中，可以不必等待数据完全处理完毕再返回，服务器产生部分数据，那么就发送部分数据，很明此种方式更加优秀一些，可以节省很多等待时间。
+
+4、范围请求
+
+HTTP/1.1 中在请求消息中引入了 range 头域，它允许只请求资源的某个部分。
+
+5、增加 host 字段
+
+使得一个服务器能够用来创建多个 Web 站点。
+
+## HTTP1.1 如何解决 HTTP 的队头阻塞问题？
+
+使用并发连接和域名分片
+
+### 什么是 HTTP 队头阻塞？
+
+从前面的小节可以知道，HTTP 传输是基于请求-应答的模式进行的，报文必须是一发一收，但值得注意的是，里面的任务被放在一个任务队列中串行执行，一旦队首的请求处理太慢，就会阻塞后面请求的处理。这就是著名的 HTTP 队头阻塞问题。
+
+### 并发连接
+
+对于一个域名允许分配多个长连接，那么相当于增加了任务队列，不至于一个队伍的任务阻塞其它所有任务。在 RFC2616 规定过客户端最多并发 2 个连接，不过事实上在现在的浏览器标准中，这个上限要多很多，Chrome 中是 6 个。
+但其实，即使是提高了并发连接，还是不能满足人们对性能的需求。
+
+### 域名分片
+
+一个域名不是可以并发 6 个长连接吗？那我就多分几个域名。
+比如 content1.sanyuan.com 、content2.sanyuan.com。
+这样一个 sanyuan.com 域名下可以分出非常多的二级域名，而它们都指向同样的一台服务器，能够并发的长连接数更多了，事实上也更好地解决了队头阻塞的问题。
+
+## HTTP/2 有哪些改进？
+
+1、头部压缩
+
+客户端和服务器同时维护一张头信息表，所有字段都会存入这个表，生成一个索引号，以后就不发送同样字段了，只发送索引号，这样就能提高速度了。
+
+2、二进制传输
+
+首先，HTTP/2 认为明文传输对机器而言太麻烦了，不方便计算机的解析，因为对于文本而言会有多义性的字符，比如回车换行到底是内容还是分隔符，在内部需要用到状态机去识别，效率比较低。于是 HTTP/2 干脆把报文全部换成二进制格式，全部传输 01 串，方便了机器的解析。
+
+原来 Headers + Body 的报文格式如今被拆分成了一个个二进制的帧，用 Headers 帧存放头部字段，Data 帧存放请求体数据。分帧之后，服务器看到的不再是一个个完整的 HTTP 请求报文，而是一堆乱序的二进制帧。这些二进制帧不存在先后关系，因此也就不会排队等待，也就没有了 HTTP 的队头阻塞问题。
+
+3、多路复用
+
+通信双方都可以给对方发送二进制帧，这种二进制帧的双向传输的序列，也叫做流(Stream)。HTTP/2 用流来在一个 TCP 连接上来进行多个数据帧的通信，这就是多路复用的概念。
+
+首先要声明的是，所谓的乱序，指的是不同 ID 的 Stream 是乱序的，但同一个 Stream ID 的帧一定是按顺序传输的。二进制帧到达后对方会将 Stream ID 相同的二进制帧组装成完整的请求报文和响应报文。当然，在二进制帧当中还有其他的一些字段，实现了优先级和流量控制等功能。
+
+4、服务器推送
+
+外值得一说的是 HTTP/2 的服务器推送(Server Push)。在 HTTP/2 当中，服务器已经不再是完全被动地接收请求，响应请求，它也能新建 stream 来给客户端发送消息，当 TCP 连接建立之后，比如浏览器请求一个 HTML 文件，服务器就可以在返回 HTML 的基础上，将 HTML 中引用到的其他资源文件一起返回给客户端，减少客户端的等待。
+
+## 请简单介绍一下 LRU （Least recently used）算法
+
+LRU（Least recently used，最近最少使用）算法根据数据的历史访问记录来进行淘汰数据，其核心思想是“如果数据最近被访问过，那么将来被访问的几率也更高”。
+
+1. 新数据插入到链表头部；
+2. 每当缓存命中（即缓存数据被访问），则将数据移到链表头部；
+3. 当链表满的时候，将链表尾部的数据丢弃。
