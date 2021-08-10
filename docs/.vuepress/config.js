@@ -74,12 +74,15 @@ module.exports = {
         ]
       },
       {
-        title: 'git',
-        path: '/git',
+        title: 'vue',
+        path: '/vue',
         children: [
-          ['/git/基础', '基础'],
-          ['/git/gitignore', 'gitignore'],
-          ['/git/常见问题', '常见问题'],
+          ['/vue/源码分析', '源码分析'],
+          ['/vue/nextTick分析', 'nextTick分析'],
+          ['/vue/vuex分析', 'vuex分析'],
+          ['/vue/router分析', 'router分析'],
+          ['/vue/vue3', 'vue3'],
+          ['/vue/vue2和vue3区别', 'vue2和vue3区别'],
         ]
       },
       {
@@ -121,15 +124,20 @@ module.exports = {
         ]
       },
       {
-        title: 'vue',
-        path: '/vue',
+        title: 'app',
+        path: '/app',
         children: [
-          ['/vue/源码分析', '源码分析'],
-          ['/vue/nextTick分析', 'nextTick分析'],
-          ['/vue/vuex分析', 'vuex分析'],
-          ['/vue/router分析', 'router分析'],
-          ['/vue/vue3', 'vue3'],
-          ['/vue/vue2和vue3区别', 'vue2和vue3区别'],
+          ['/app/移动开发简介', '移动开发简介'],
+          ['/app/Hybrid', 'Hybrid'],
+        ]
+      },
+      {
+        title: 'git',
+        path: '/git',
+        children: [
+          ['/git/基础', '基础'],
+          ['/git/gitignore', 'gitignore'],
+          ['/git/常见问题', '常见问题'],
         ]
       },
       {
@@ -151,11 +159,13 @@ module.exports = {
         ]
       },
       {
-        title: 'app',
-        path: '/app',
+        title: '服务器',
+        path: '/服务器',
         children: [
-          ['/app/移动开发简介', '移动开发简介'],
-          ['/app/Hybrid', 'Hybrid'],
+          ['/服务器/docker', 'docker'],
+          ['/服务器/dockercompose', 'dockercompose'],
+          ['/服务器/dockerfile文件', 'dockerfile文件'],
+          ['/服务器/nginx', 'nginx'],
         ]
       }
     ]
