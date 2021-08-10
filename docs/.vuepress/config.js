@@ -86,6 +86,13 @@ module.exports = {
         ]
       },
       {
+        title: 'react',
+        path: '/react',
+        children: [
+          ['/react/react', 'react'],
+        ]
+      },
+      {
         title: '构建',
         path: '/构建',
         children: [
