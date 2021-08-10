@@ -6,7 +6,7 @@
 
 [vuex 分析](/vue/vuex分析)
 
-[router 分析](/vue/router分析)
+[vue-router 分析](/vue/vue-router分析)
 
 [vue3](/vue/vue3)
 

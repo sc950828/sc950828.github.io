@@ -80,7 +80,7 @@ module.exports = {
           ['/vue/源码分析', '源码分析'],
           ['/vue/nextTick分析', 'nextTick分析'],
           ['/vue/vuex分析', 'vuex分析'],
-          ['/vue/router分析', 'router分析'],
+          ['/vue/vue-router分析', 'vue-router分析'],
           ['/vue/vue3', 'vue3'],
           ['/vue/vue2和vue3区别', 'vue2和vue3区别'],
         ]
@@ -90,6 +90,10 @@ module.exports = {
         path: '/react',
         children: [
           ['/react/react', 'react'],
+          ['/react/hooks', 'hooks'],
+          ['/react/react-router', 'react-router'],
+          ['/react/react-redux', 'react-redux'],
+          ['/react/react和vue对比', 'react和vue对比'],
         ]
       },
       {

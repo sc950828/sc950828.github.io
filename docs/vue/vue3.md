@@ -864,7 +864,7 @@ Vue3 移除了 filter
 
 获取组件实例方法 getCurrentInstance()，这个方法可以获取到当前组件的实例，相当于 Vue2 中的 this
 
-## 路由
+## vue-router
 
 ### 使用方式
 
