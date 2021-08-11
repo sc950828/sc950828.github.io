@@ -1,4 +1,4 @@
-### redux 核心
+## redux 核心
 
 Redux 是 JavaScript 状态容器，提供可预测化的状态管理。
 
@@ -45,7 +45,7 @@ let unsubscribe = store.subscribe(() => {
 unsubscribe();
 ```
 
-### 三大原则
+## 三大原则
 
 单一数据源。整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。只能通过 store.getState()获取到 state。
 
@@ -53,7 +53,7 @@ State 是只读的。唯一改变 state 的方法就是触发 action，action �
 
 使用纯函数来执行修改。Reducer 只是一些纯函数，它接收先前的 state 和 action，并返回新的 state。
 
-### react-redux
+## react-redux
 
 react-redux 官方提供的 React 绑定库。 具有高效且灵活的特性。
 Redux 本身和 React 没有关系，只是数据处理中心，是 React-Redux 让他们联系在一起。
@@ -257,7 +257,7 @@ function mapDispatchToProps(dispatch, ownprops) {
 export default connect(mapStateToProps, mapDispatchToProps)(Container);
 ```
 
-### 中间件
+## 中间件
 
 比如在 Dispatch 一个 Action 之后，到达 reducer 之前，进行一些额外的操作，就需要用到 middleware（中间件）。
 
@@ -265,7 +265,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Container);
 
 异步请求中间件
 
-redux-thunk
+### redux-thunk
 
 ```js
 import { createStore, applyMiddleware, compose } from "redux";
@@ -321,7 +321,7 @@ redux-thunk 缺陷:
 - 耦合严重: 异步操作与 redux 的 action 偶合在一起,不方便管理
 - 功能孱弱: 有一些实际开发中常用的功能需要自己进行封装
 
-redux-saga
+### redux-saga
 
 ```js
 // 安装redux-saga npm install redux-saga

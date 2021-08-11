@@ -16,7 +16,7 @@ React.js 不是一个框架，它只是一个库。它只提供 UI （view）层
     还可以单独使用 yarn 安装
     yarn create react-app projectName
 
-使用 vscode 写 react 的配套插件
+### 使用 vscode 写 react 的配套插件
 
 Simple React Snippets
 

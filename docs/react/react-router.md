@@ -1,4 +1,4 @@
-### 路由介绍
+## 路由介绍
 
 react-router 是完整的 react 的路由解决方案，它保持 UI 与 URL 的同步。在项目中我们使用的是最新的 v4 版。
 
@@ -39,7 +39,7 @@ getUserConfirmation：func 用于确认导航的功能。默认使用window.conf
 hashType：字符串 编码类型window.location.hash 默认slash
 ```
 
-### Link
+## Link
 
 ```
 Link
@@ -81,7 +81,7 @@ NavLink和Link一样最终都是渲染成a标签，NavLink可以给这个a标签
     <NavLink to="/a/123" location={{key:"mb5wu3",pathname:"/a/123"}}/>
 ```
 
-### Router
+## Router
 
 ```
 低级路由，适用于任何路由组件，主要和redux深度集成，使用必须配合history对象
@@ -124,7 +124,7 @@ Route的作用就是用来渲染路由匹配的组件
   location，传递route对象，和当前的route对象对比，如果匹配则跳转，如果不匹配则不跳转。另外，如果route包含在swicth组件中，如果route的location和switch的location匹配，那么route的location会被switch的location替代
 ```
 
-### history
+## history
 
 useHistory 挂钩使您可以访问 history 可用于导航的实例。
 
@@ -151,7 +151,7 @@ History {
 }
 ```
 
-### match
+## match
 
 ```js
 // 对象表示当前的路由地址是怎么跳转过来的，包含的属性如下
@@ -163,7 +163,7 @@ History {
 }
 ```
 
-### location
+## location
 
 ```js
 // location对象表示当前的路由位置信息，主要包含如下属性
@@ -176,7 +176,7 @@ History {
 }
 ```
 
-### withRouter
+## withRouter
 
 ```js
 // 当一个非路由组件也想访问到当前路由的match,location,history对象，那么withRouter将是一个非常好的选择
@@ -188,7 +188,7 @@ const MyComponent = (props) => {
 const FirstTest = withRouter(MyComponent);
 ```
 
-### 使用
+## 使用
 
 ```js
 // 根组件使用 BrowserRouter包裹
@@ -222,7 +222,7 @@ function Params() {
 }
 ```
 
-### 嵌套路由
+## 嵌套路由
 
 ```js
 import { Route, useRouteMatch, Link } from "react-router-dom";
@@ -243,7 +243,7 @@ function Parent() {
 }
 ```
 
-### 自定义链接
+## 自定义链接
 
 实际上就是对 Link 组件的封装
 
@@ -265,7 +265,7 @@ function CustomLink(props) {
 }
 ```
 
-### 过渡
+## 过渡
 
 ```js
 import React, { useState } from "react";
@@ -289,7 +289,7 @@ function GuoDu() {
 export default GuoDu;
 ```
 
-### 404
+## 404
 
 ```js
 import React from "react";
@@ -317,7 +317,7 @@ export default All;
 </Switch>;
 ```
 
-### 重定向
+## 重定向
 
 ```js
 import { Redirect } from "react-router-dom";
