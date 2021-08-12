@@ -94,6 +94,7 @@ module.exports = {
           ['/react/react-router', 'react-router'],
           ['/react/react-redux', 'react-redux'],
           ['/react/react和vue对比', 'react和vue对比'],
+          ['/react/生命周期', '生命周期'],
         ]
       },
       {

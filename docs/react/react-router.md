@@ -47,10 +47,10 @@ to属性
   接受path字符串，<Link to="/a" />
   接受对象
   <Link to={{
-      pathname: '/courses',  // 传递的pathname
-      search: '?sort=name',  // 传递的url参数
-      hash: '#the-hash', // 在url参数后面的hash值
-      state: { fromDashboard: true } // 自定义属性存在location中
+    pathname: '/courses',  // 传递的pathname
+    search: '?sort=name',  // 传递的url参数
+    hash: '#the-hash', // 在url参数后面的hash值
+    state: { fromDashboard: true } // 自定义属性存在location中
   }}/>
 replace，设置为true，会取代当前历史记录
 innerRef 访问Link标签的dom
@@ -126,7 +126,7 @@ Route的作用就是用来渲染路由匹配的组件
 
 ## history
 
-useHistory 挂钩使您可以访问 history 可用于导航的实例。
+useHistory 挂钩使您可以访问 history 可用于导航的实例。在类组件中直接使用 this.props.history 访问
 
 ```js
 import { useHistory } from "react-router-dom";
@@ -153,8 +153,11 @@ History {
 
 ## match
 
+match 对象表示当前的路由地址是怎么跳转过来的，包含的属性如下
+
+params 参数是路径动态参数，通过 this.props.match.params.xx 获取
+
 ```js
-// 对象表示当前的路由地址是怎么跳转过来的，包含的属性如下
 {
   isExact: true, // 表示匹配到当前路径是否是完全匹配
   params: {}, // 表示路径的动态参数值 this.props.match.params.xx
@@ -165,8 +168,11 @@ History {
 
 ## location
 
+location 对象表示当前的路由位置信息，主要包含如下属性
+
+可以直接通过 this.props.location 或者 this.props.history.location 获取 location 对象
+
 ```js
-// location对象表示当前的路由位置信息，主要包含如下属性
 {
   hash: undefined,
   key: "k9r4i3",
@@ -174,6 +180,12 @@ History {
   state: undefined,
   search: ""
 }
+```
+
+state 里面 是通过 state 传递过来的参数，并且刷新不会丢失
+
+```html
+<Link to={{pathname: '/Router2/1000', state: 'randy', search: '?age=26'}}>goRouter2</Link>
 ```
 
 ## withRouter

@@ -4,6 +4,12 @@
 
 [hooks](/react/hooks)
 
+[生命周期](/react/生命周期)
+
+[react-router](/react/react-router)
+
+[react-redux](/react/react-redux)
+
 [react 和 vue 对比](/react/react和vue对比)
 
 ## 学习文档
