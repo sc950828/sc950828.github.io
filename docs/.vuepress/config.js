@@ -2,10 +2,10 @@ const path = require('path')
 
 module.exports = {
   title: '苏纯的博客',
-  description: '开发路上的点点滴滴',
+  description: '苏纯,汨罗苏纯,苏纯的博客,苏纯的前端博客,苏纯的个人博客,前端开发',
   head: [
     ['link', { rel: 'icon', href: '/randy.jpg' }],
-    ['meta', { name: 'keywords', content: '苏纯，苏纯的博客，苏纯的个人博客，前端博客，前端个人博客，苏纯前端博客' }]
+    ['meta', { name: 'keywords', content: '苏纯,苏纯的博客,苏纯的个人博客,苏纯的前端博客,前端博客,前端个人博客,前端开发' }]
   ],
   themeConfig: {
     nav: [
@@ -49,10 +49,26 @@ module.exports = {
           ['/JavaScript/节流、防抖一套带走', '节流、防抖一套带走'],
         ]
       },
-    ]
+      {
+        title: 'ECMAScript',
+        path: '/ECMAScript',
+        children: [
+          ['/ECMAScript/ES6', 'ES6'],
+          ['/ECMAScript/ES7、ES8、ES9、ES10、ES11、ES12', 'ES7、ES8、ES9、ES10、ES11、ES12'],
+        ]
+      },
+      {
+        title: 'H5',
+        path: '/H5',
+        children: [
+          ['/H5/移动端H5网页开发必备知识', '移动端H5网页开发必备知识'],
+          ['/H5/移动端H5网页开发常见问题汇总', '移动端H5网页开发常见问题汇总'],
+          ['/H5/移动端开发必备知识-HybridApp', '移动端开发必备知识-HybridApp'],
+        ]
+      },
+    ],
+    smoothScroll: true
   },
   dest: path.resolve(__dirname, "../../dist"),
-  markdown: {
-    lineNumbers: true
-  }
+  plugins: ['@vuepress/nprogress', '@vuepress/back-to-top', '@vuepress/medium-zoom']
 }
