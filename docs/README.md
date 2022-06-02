@@ -4,7 +4,7 @@ heroImage: /randy.jpg
 heroText: 苏纯的博客
 tagline: 开发路上的点点滴滴
 actionText: 一起共勉 →
-actionLink: /GUIDE
+actionLink: /guide
 features:
   - title: 学习总结
     details: 笔者学习过程中的一些知识总结。
